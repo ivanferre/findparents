@@ -2,18 +2,10 @@ function helloWorld() {
     alert("Hello, World!");
 }
 
-/*element => {
-        let str = element.innerHTML;
-        cities.push(str);
-    }*/
-
 let cities = [];
 
-
-function getCity(city) {
-   // cities.push (city.innerHTML);
-}
-
+// https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/parentElement
 function findCity() {
     let cityElements = document.getElementsByClassName("city");
     // alert(`Find ${cityElements.length} cities.`)
