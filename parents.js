@@ -50,3 +50,22 @@ function hidePeopleNotInBern() {
         }
     });
 }
+
+function hidePeopleNotInCity(city) {
+
+    let cityElements = document.getElementsByClassName("city");
+
+    let cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML != city);
+
+    cities.forEach(element => {
+        console.log(`${element.innerHTML}`);
+        if (element.parentElement) {
+            element.parentElement.style.color = "red";
+            let papa = element.parentElement;
+            let grandpa = papa.parentElement;
+            if (grandpa) {
+                grandpa.style.display = 'none';
+            }
+        }
+    });
+}
