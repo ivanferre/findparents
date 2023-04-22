@@ -33,11 +33,6 @@ function findCity() {
 
 function hidePeopleNotInBern() {
     let cityElements = document.getElementsByClassName("city");
-    // alert(`Find ${cityElements.length} cities.`)
-    /* const testDivs = Array.prototype.filter.call(
-  testElements,
-  (testElement) => testElement.nodeName === "DIV"
-); */
     let cities = Array.prototype.filter.call(cityElements, (city) => city.innerHTML !== "Bern");
     alert(`There are ${cities.length} other cities.`);
 

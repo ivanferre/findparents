@@ -1,0 +1,21 @@
+figure {
+    border: 1px solid red;
+}
+
+figcaption {
+    border: 1px solid blue;
+}
+
+section {
+    display: flex;
+    margin: 3em;
+    justify-content: space-around;
+}
+
+button {
+    margin: 2em;
+}
+
+.commands {
+    flex-direction: row;
+}
