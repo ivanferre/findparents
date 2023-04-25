@@ -32,6 +32,7 @@ function findCity() {
     });
 }
 
+// ! Deprecated
 function hidePeopleNotInBern() {
     let cityElements = document.getElementsByClassName("city");
     let cities = Array.prototype.filter.call(cityElements, (city) => city.innerHTML !== "Bern");
@@ -52,6 +53,7 @@ function hidePeopleNotInBern() {
     });
 }
 
+// ! Deprecated
 function hidePeopleNotInCity(city) {
 
     let cityElements = document.getElementsByClassName("city");
