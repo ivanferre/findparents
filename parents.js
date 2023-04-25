@@ -6,6 +6,7 @@ let cities = [];
 
 // https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentElement
+// ! DEPRECATED
 function findCity() {
     let cityElements = document.getElementsByClassName("city");
     // alert(`Find ${cityElements.length} cities.`)
@@ -89,35 +90,46 @@ function showPeopleNotInCity(city) {
     });
 }
 
+// @param city is string
+// @param inout = {"in", "out"}
+// @param style = {"show", "hide"}
 function displayPeopleCity(city, inout, style) {
 
     let cityElements = document.getElementsByClassName("city");
+    let cities;
 
     if ("in" == inout) {
-        let cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML == city);
-    } else {
-        let cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML != city);
+        cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML == city);
+        console.log(`Got ${cities.length} in Bern.`);
+    } else { // "out"
+        cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML != city);
+        console.log(`Got ${cities.length} out of Bern.`);
     }
 
     cities.forEach(element => {
+        console.log("Looping!");
         console.log(`${element.innerHTML}`);
         if (element.parentElement) {
-            element.parentElement.style.color = "red";
+            // element.parentElement.style.color = "red";
             let papa = element.parentElement;
             let grandpa = papa.parentElement;
             if (grandpa) {
                 switch (style) {
                     case "show":
                         grandpa.style.display = 'inline-block';
+                        console.log("Showing citizen.");
                         break;        
                     case "hide":
                         grandpa.style.display = 'none';
-                        break;        
+                        console.log("Hiding citizen.");
+                        break;
                     default:
                         grandpa.style.display = 'inline-block';
-                        break;        
+                        console.log("Improvising.");
+                        break;
                 }
-.            }
+            }
         }
     });
+    console.log(`${cities.length} say goodbye`);
 }
