@@ -69,3 +69,55 @@ function hidePeopleNotInCity(city) {
         }
     });
 }
+
+function showPeopleNotInCity(city) {
+
+    let cityElements = document.getElementsByClassName("city");
+
+    let cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML != city);
+
+    cities.forEach(element => {
+        console.log(`${element.innerHTML}`);
+        if (element.parentElement) {
+            element.parentElement.style.color = "red";
+            let papa = element.parentElement;
+            let grandpa = papa.parentElement;
+            if (grandpa) {
+                grandpa.style.display = 'inline-block';
+            }
+        }
+    });
+}
+
+function displayPeopleCity(city, inout, style) {
+
+    let cityElements = document.getElementsByClassName("city");
+
+    if ("in" == inout) {
+        let cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML == city);
+    } else {
+        let cities = Array.prototype.filter.call(cityElements, (c) => c.innerHTML != city);
+    }
+
+    cities.forEach(element => {
+        console.log(`${element.innerHTML}`);
+        if (element.parentElement) {
+            element.parentElement.style.color = "red";
+            let papa = element.parentElement;
+            let grandpa = papa.parentElement;
+            if (grandpa) {
+                switch (style) {
+                    case "show":
+                        grandpa.style.display = 'inline-block';
+                        break;        
+                    case "hide":
+                        grandpa.style.display = 'none';
+                        break;        
+                    default:
+                        grandpa.style.display = 'inline-block';
+                        break;        
+                }
+.            }
+        }
+    });
+}
